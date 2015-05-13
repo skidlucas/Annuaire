@@ -1,0 +1,42 @@
+<form class="form-horizontal">
+  <fieldset>
+
+    <h3 class="bluePoly center">Ajout d'un projet</h3>
+    <br>
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-lg-4 control-label" for="title">Titre :</label>
+      <div class="col-lg-6">
+        <input id="title" name="title" placeholder="" class="form-control input-lg" required="" type="text" ng-model="project.title">
+
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-lg-4 control-label" for="year">Année :</label>
+      <div class="col-lg-6">
+        <input id="year" name="year" placeholder="" class="form-control input-lg" required="" type="number" ng-model="project.year">
+
+      </div>
+    </div>
+
+    <!-- Textarea -->
+    <div class="form-group">
+      <label class="col-lg-4 control-label" for="description">Description :</label>
+      <div class="col-lg-6">
+        <textarea class="form-control" id="description" ng-model="project.description" name="description"></textarea>
+      </div>
+    </div>
+
+    <!-- Button (Double) -->
+    <div class="form-group center">
+      <label class="col-lg-4 control-label" for="save"></label>
+      <div class="col-lg-8">
+        <button id="save" name="save" class="btn btn-primary" ng-click="saveData()">Sauvegarder</button>
+        <a href="#/projets"><button id="cancel" name="cancel" class="btn btn-danger">Annuler</button></a>
+      </div>
+    </div>
+
+  </fieldset>
+</form>
