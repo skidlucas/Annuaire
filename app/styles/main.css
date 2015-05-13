@@ -7,7 +7,6 @@
 
 body {
   padding: 0;
-  background-image: url("/images/brickwall.png");
 }
 
 img{
@@ -42,9 +41,17 @@ img{
   color: rgb(35,145,226);
 }
 
-.bandeau{
+.title{
   font-size: xx-large;
-  font-family: verdana;
+}
+
+#text{
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+#bottom{
+  font-size: 11px;
 }
 
 /* Custom page header */

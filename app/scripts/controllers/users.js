@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc function
- * @name gestionUsersApp.controller
+ * @name annuaireApp.controller
  * @description
  *
- * Controller of the gestionUsersApp
+ * Controller of the annuaireApp
  */
-angular.module('gestionUsersApp')
-  .controller('UtilCtrl',  ['$scope', '$http', '$routeParams', '$location', 'Users', function ($scope, $http, $routeParams, $location, Users) {
+angular.module('annuaireApp')
+  .controller('UserCtrl',  ['$scope', '$http', '$routeParams', '$location', 'Users', function ($scope, $http, $routeParams, $location, Users) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -23,14 +23,14 @@ angular.module('gestionUsersApp')
 
     $scope.deleteElt = function (userId) {
       Users.delete(userId, function(data){
-        $location.path('/utilisateurs');
+        $location.path('/users');
       }, function (data){
         //erreur dans le delete
       });
     }
   }])
 
-  .controller('AddUtilCtrl',['$scope', '$http', '$routeParams', 'Users', function ($scope, $http, $routeParams, Users){
+  .controller('AddUserCtrl',['$scope', '$http', '$routeParams', 'Users', function ($scope, $http, $routeParams, Users){
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -47,7 +47,7 @@ angular.module('gestionUsersApp')
 
   }])
 
-  .controller('DetailUtilCtrl',['$scope', '$http', '$routeParams', 'Users', 'Roles', 'Projects', function ($scope, $http, $routeParams, Users, Roles, Projects) {
+  .controller('DetailUserCtrl',['$scope', '$http', '$routeParams', 'Users', 'Roles', 'Projects', function ($scope, $http, $routeParams, Users, Roles, Projects) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -88,7 +88,7 @@ angular.module('gestionUsersApp')
     }
   }])
 
-  .controller('EditUtilCtrl', ['$scope', '$http', '$routeParams', '$location', 'Users', function ($scope, $http, $routeParams, $location, Users) {
+  .controller('EditUserCtrl', ['$scope', '$http', '$routeParams', '$location', 'Users', function ($scope, $http, $routeParams, $location, Users) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -108,7 +108,7 @@ angular.module('gestionUsersApp')
     $scope.saveData = function() {
       Users.edit($scope.user,
         function(data) {
-          $location.path('/'+ data.id +'/detailsUtil');
+          $location.path('/'+ data.id +'/detailsUser');
         },
         function(data) {
           $scope.error = data;

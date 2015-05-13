@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name gestionUsersApp.controller
+ * @name annuaireApp.controller
  * @description
  *
- * Controller of the gestionUsersApp
+ * Controller of the annuaireApp
  */
-angular.module('gestionUsersApp')
+angular.module('annuaireApp')
   .controller('ProjCtrl',  ['$scope', '$http', '$routeParams', '$location', 'Projects', function ($scope, $http, $routeParams, $location, Projects) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
@@ -23,7 +23,7 @@ angular.module('gestionUsersApp')
 
     $scope.deleteElt = function (projId) {
       Projects.delete(projId, function(data){
-        $location.url('/projets');// ne marche pas
+        $location.url('/projects');// ne marche pas
       }, function (data){
         //erreur dans le delete
       });

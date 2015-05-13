@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name gestionUsersApp.service:UserServ
+ * @name annuaireApp.service:UserServ
  * @description
  * # UserServ
- * Service of the gestionUsersApp
+ * Service of the annuaireApp
  */
-angular.module('gestionUsersApp')
+angular.module('annuaireApp')
   .service('Users', ['$http', function Users($http) {
     //select all users
     this.getAll = function (userId, successCB, errorCB) {
@@ -180,7 +180,7 @@ angular.module('gestionUsersApp')
         });
     }
 
-    //get utilisateurs of the project
+    //get users of the project
     this.getUtil = function (projetId, successCB, errorCB) {
       $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Projects/' + projetId + '/Users/')
         .success(function (data) {

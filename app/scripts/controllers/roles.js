@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name gestionUsersApp.controller
+ * @name annuaireApp.controller
  * @description
  *
- * Controller of the gestionUsersApp
+ * Controller of the annuaireApp
  */
-angular.module('gestionUsersApp')
+angular.module('annuaireApp')
   .controller('EditRoleCtrl',  ['$scope', '$http', '$routeParams', '$location', 'Roles', 'Projects', 'Users', function ($scope, $http, $routeParams, $location, Roles, Projects, Users) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',

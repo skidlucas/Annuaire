@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc overview
- * @name gestionUsersApp
+ * @name annuaireApp
  * @description
- * # gestionUsersApp
+ * # annuaireApp
  *
  * Main module of the application.
  */
 angular
-  .module('gestionUsersApp', [
+  .module('annuaireApp', [
     'ngAnimate',
     'ngAria',
     'ngCookies',
@@ -24,43 +24,43 @@ angular
       .when('/', {
         templateUrl: 'views/main.html'
       })
-      .when('/utilisateurs', {
-        templateUrl: '../views/utilisateurs/utilisateurs.html',
-        controller: 'UtilCtrl'
+      .when('/users', {
+        templateUrl: '../views/users/users.html',
+        controller: 'UserCtrl'
       })
-      .when('/projets',{
-        templateUrl:'../views/projets/projets.html',
+      .when('/projects',{
+        templateUrl:'../views/projects/projects.html',
         controller: 'ProjCtrl'
       })
-      .when('/addUtil',{
-        templateUrl:'../views/utilisateurs/addUtil.html',
-        controller: 'AddUtilCtrl'
+      .when('/addUser',{
+        templateUrl:'../views/users/addUser.html',
+        controller: 'AddUserCtrl'
       })
       .when('/addProj',{
-        templateUrl:'../views/projets/addProj.html',
+        templateUrl:'../views/users/addProj.html',
         controller: 'AddProjCtrl'
       })
-      .when('/:userId/detailsUtil',{
-        templateUrl:'../views/utilisateurs/detailsUtil.html',
-        controller:'DetailUtilCtrl'
+      .when('/:userId/detailsUser',{
+        templateUrl:'../views/users/detailsUser.html',
+        controller:'DetailUserCtrl'
       })
-      .when('/:userId/editerUtil', {
-        templateUrl:'../views/utilisateurs/addUtil.html',
-        controller:'EditUtilCtrl'
+      .when('/:userId/editUser', {
+        templateUrl:'../views/users/addUser.html',
+        controller:'EditUserCtrl'
       })
-      .when('/:projId/editerProj', {
-        templateUrl:'../views/projets/addProj.html',
+      .when('/:projId/editProj', {
+        templateUrl:'../views/projects/addProj.html',
         controller:'EditProjCtrl'
       })
       .when('/:projId/detailsProj', {
-        templateUrl:'../views/projets/detailsProj.html',
+        templateUrl:'../views/projects/detailsProj.html',
         controller: 'DetailProjCtrl'
       })
       .when('/addRole', {
         templateUrl:'../views/roles/addRole.html',
         controller: 'AddRoleCtrl'
       })
-      .when('/:roleId/editerRole', {
+      .when('/:roleId/editRole', {
         templateUrl:'../views/roles/addRole.html',
         controller: 'EditRoleCtrl'
       })
