@@ -45,7 +45,7 @@ angular
         controller:'DetailUserCtrl'
       })
       .when('/:userId/editUser', {
-        templateUrl:'../views/users/addUser.html',
+        templateUrl:'../views/users/editUser.html',
         controller:'EditUserCtrl'
       })
       .when('/:projId/editProj', {

@@ -21,11 +21,12 @@ angular.module('annuaireApp')
       //erreur dans le chargement
     });
 
-    $scope.deleteElt = function (userId) {
+    $scope.delete = function (userId) {
       Users.delete(userId, function(data){
+        $scope.getAll();
         $location.path('/users');
       }, function (data){
-        //erreur dans le delete
+        $scope.error = "Erreur dans la suppression de l'utilisateur";
       });
     }
   }])
@@ -94,6 +95,15 @@ angular.module('annuaireApp')
       'AngularJS',
       'Karma'
     ];
+
+    $scope.delete = function (userId) {
+      Users.delete(userId, function(data){
+        $scope.getAll();
+        $location.path('/users');
+      }, function (data){
+        $scope.error = "Erreur dans la suppression de l'utilisateur";
+      });
+    }
 
     if ($routeParams.userId) {
       Users.get($routeParams.userId,

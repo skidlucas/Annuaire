@@ -1,0 +1,53 @@
+<form class="form-horizontal">
+    <fieldset>
+
+        <!-- Form Name -->
+        <h3 class="bluePoly center">Modification d'un utilisateur</h3>
+        <br>
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-lg-4 control-label" for="name">Nom :</label>
+            <div class="col-lg-8">
+                <input id="name" name="name" placeholder="" class="form-control input-lg" required="" type="text" ng-model="user.surname">
+
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-lg-4 control-label" for="Prénom :">Prénom :</label>
+            <div class="col-lg-8">
+                <input id="Prénom :" name="Prénom :" placeholder="" class="form-control input-lg" required="" type="text" ng-model="user.name">
+
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-lg-4 control-label" for="mail">E-mail :</label>
+            <div class="col-lg-8">
+                <input id="mail" name="mail" placeholder="" class="form-control input-lg" type="email" ng-model="user.email">
+
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-lg-4 control-label" for="website">Site web :</label>
+            <div class="col-lg-8">
+                <input id="website" name="website" placeholder="" class="form-control input-lg" type="url" ng-model="user.website">
+
+            </div>
+        </div>
+
+        <!-- Button (Double) -->
+        <div class="form-group center">
+            <div class="col-lg-offset-4 col-lg-6">
+                <button id="save" name="save" class="btn btn-primary" ng-click="saveData()">Sauvegarder</button>
+                <a href="#/users"><button id="cancel" name="cancel" class="btn">Annuler</button></a>
+                <a ng-click="delete(user.id)"><button  class="btn btn-danger">Supprimer</button></a>
+            </div>
+        </div>
+
+    </fieldset>
+</form>
