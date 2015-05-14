@@ -6,36 +6,36 @@
     <br>
     <!-- Text input-->
     <div class="form-group">
-      <label class="col-lg-4 control-label" for="name">Nom :</label>
+      <label class="col-lg-4 control-label" for="surname">Nom</label>
       <div class="col-lg-8">
-        <input id="name" name="name" placeholder="" class="form-control input-lg" required="" type="text" ng-model="user.surname">
+        <input id="surname" name="surname" placeholder="" class="form-control" required="" type="text" ng-model="user.surname">
 
       </div>
     </div>
 
     <!-- Text input-->
     <div class="form-group">
-      <label class="col-lg-4 control-label" for="Prénom :">Prénom :</label>
+      <label class="col-lg-4 control-label" for="name">Prénom</label>
       <div class="col-lg-8">
-        <input id="Prénom :" name="Prénom :" placeholder="" class="form-control input-lg" required="" type="text" ng-model="user.name">
+        <input id="name" name="name" placeholder="" class="form-control" required="" type="text" ng-model="user.name">
 
       </div>
     </div>
 
     <!-- Text input-->
     <div class="form-group">
-      <label class="col-lg-4 control-label" for="mail">E-mail :</label>
+      <label class="col-lg-4 control-label" for="mail">E-mail</label>
       <div class="col-lg-8">
-        <input id="mail" name="mail" placeholder="" class="form-control input-lg" type="email" ng-model="user.email">
+        <input id="mail" name="mail" placeholder="" class="form-control" type="email" ng-model="user.email">
 
       </div>
     </div>
 
     <!-- Text input-->
     <div class="form-group">
-      <label class="col-lg-4 control-label" for="website">Site web :</label>
+      <label class="col-lg-4 control-label" for="website">Site web</label>
       <div class="col-lg-8">
-        <input id="website" name="website" placeholder="" class="form-control input-lg" type="url" ng-model="user.website">
+        <input id="website" name="website" placeholder="" class="form-control" type="text" ng-model="user.website">
 
       </div>
     </div>
@@ -43,8 +43,8 @@
     <!-- Button (Double) -->
     <div class="form-group center">
       <div class="col-lg-offset-4 col-lg-6">
-        <button id="save" name="save" class="btn btn-primary" ng-click="saveData()">Sauvegarder</button>
-        <a href="#/users"><button id="cancel" name="cancel" class="btn">Annuler</button></a>
+        <button id="save" name="save" class="btn btn-primary" ng-click="saveData()">Sauvegarder <i class="fa fa-check"></i></button>
+        <a href="#/users"><button id="cancel" name="cancel" class="btn">Annuler <i class="fa fa-times"></i></button></a>
       </div>
     </div>
 

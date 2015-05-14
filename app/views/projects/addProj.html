@@ -7,7 +7,7 @@
     <div class="form-group">
       <label class="col-lg-4 control-label" for="title">Titre :</label>
       <div class="col-lg-6">
-        <input id="title" name="title" placeholder="" class="form-control input-lg" required="" type="text" ng-model="project.title">
+        <input id="title" name="title" placeholder="" class="form-control" required="" type="text" ng-model="project.title">
 
       </div>
     </div>
@@ -16,7 +16,7 @@
     <div class="form-group">
       <label class="col-lg-4 control-label" for="year">Année :</label>
       <div class="col-lg-6">
-        <input id="year" name="year" placeholder="" class="form-control input-lg" required="" type="number" ng-model="project.year">
+        <input id="year" name="year" placeholder="" class="form-control" required="" type="number" ng-model="project.year">
 
       </div>
     </div>
@@ -33,8 +33,8 @@
     <div class="form-group center">
       <label class="col-lg-4 control-label" for="save"></label>
       <div class="col-lg-8">
-        <button id="save" name="save" class="btn btn-primary" ng-click="saveData()">Sauvegarder</button>
-        <a href="#/projects"><button id="cancel" name="cancel" class="btn btn-danger">Annuler</button></a>
+        <button id="save" name="save" class="btn btn-primary" ng-click="saveData()">Sauvegarder <i class="fa fa-check"></i></button>
+        <a href="#/projects"><button id="cancel" name="cancel" class="btn">Annuler <i class="fa fa-times"></i></button></a>
       </div>
     </div>
 

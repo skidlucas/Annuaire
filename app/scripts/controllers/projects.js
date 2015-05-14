@@ -44,6 +44,7 @@ angular.module('annuaireApp')
 
     $scope.saveData = function () {
       Projects.add($scope.project, function (data){
+          $location.path('/projects');
       }, function (data){
         //erreur dans l'ajout
       });
