@@ -15,23 +15,27 @@ angular.module('annuaireApp')
       'Karma'
     ];
 
-    Users.getAll($routeParams.userId, function (data) {
-      $scope.users = data;
-    }, function (data) {
-      //erreur dans le chargement
-    });
+    $scope.getAll = function() {
+        Users.getAll(function(data) {
+            $scope.users = data;
+        }, function(data) {
+            $scope.error = data;
+        });
+    }
 
     $scope.delete = function (userId) {
       Users.delete(userId, function(data){
-        $scope.getAll();
         $location.path('/users');
+        $scope.getAll();
       }, function (data){
         $scope.error = "Erreur dans la suppression de l'utilisateur";
       });
     }
+
+        $scope.getAll();
   }])
 
-  .controller('AddUserCtrl',['$scope', '$http', '$routeParams', 'Users', function ($scope, $http, $routeParams, Users){
+  .controller('AddUserCtrl',['$scope', '$http', '$routeParams', '$location', 'Users', function ($scope, $http, $routeParams, $location, Users){
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -40,9 +44,8 @@ angular.module('annuaireApp')
 
     $scope.saveData = function () {
       Users.add($scope.user, function (data){
-        //afficher l'élément ajouté
+          $location.path('/users');
       }, function (data){
-        //erreur dans l'ajout
       });
     }
 
@@ -98,7 +101,6 @@ angular.module('annuaireApp')
 
     $scope.delete = function (userId) {
       Users.delete(userId, function(data){
-        $scope.getAll();
         $location.path('/users');
       }, function (data){
         $scope.error = "Erreur dans la suppression de l'utilisateur";

@@ -8,18 +8,17 @@
  * Service of the annuaireApp
  */
 angular.module('annuaireApp')
-  .service('Users', ['$http', function Users($http) {
-    //select all users
-    this.getAll = function (userId, successCB, errorCB) {
-      $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Users/')
-        .success(function (data) {
-          if (data.status === 'success') {
-            successCB(data.data);
-          } else {
-            errorCB(data.data);
-          }
-        });
-    };
+    .service('Users', ['$http', function Users($http){
+      this.getAll = function(successCB, errorCB) {
+        $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Users/')
+            .success(function(data) {
+              if (data.status === 'success') {
+                successCB(data.data);
+              } else {
+                errorCB(data.data);
+              }
+            });
+      };
 
     //add one user
     this.add = function(user, successCB, errorCB) {
@@ -168,9 +167,9 @@ angular.module('annuaireApp')
   }])
 
   .service('Projects',  ['$http', function Projects($http) {
-    //select project with the projetId
-    this.get = function (projetId, successCB, errorCB) {
-      $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Projects/' + projetId)
+    //select project with the projectId
+    this.get = function (projectId, successCB, errorCB) {
+      $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Projects/' + projectId)
         .success(function (data) {
           if (data.status === 'success') {
             successCB(data.data);
@@ -181,8 +180,8 @@ angular.module('annuaireApp')
     }
 
     //get users of the project
-    this.getUtil = function (projetId, successCB, errorCB) {
-      $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Projects/' + projetId + '/Users/')
+    this.getUtil = function (projectId, successCB, errorCB) {
+      $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Projects/' + projectId + '/Users/')
         .success(function (data) {
           if (data.status === 'success') {
             successCB(data.data);
@@ -193,8 +192,8 @@ angular.module('annuaireApp')
     }
 
     //get roles of the project
-    this.getRoles = function (projetId, successCB, errorCB) {
-      $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Projects/' + projetId + '/Roles/')
+    this.getRoles = function (projectId, successCB, errorCB) {
+      $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Projects/' + projectId + '/Roles/')
         .success(function (data) {
           if (data.status === 'success') {
             successCB(data.data);
@@ -205,15 +204,15 @@ angular.module('annuaireApp')
     }
 
     //select all projects
-    this.getAll = function (projectId, successCB, errorCB) {
+    this.getAll = function (successCB, errorCB) {
       $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Projects/')
-        .success(function (data) {
-          if (data.status === 'success') {
-            successCB(data.data);
-          } else {
-            errorCB(data.data);
-          }
-        });
+          .success(function (data) {
+            if (data.status === 'success') {
+              successCB(data.data);
+            } else {
+              errorCB(data.data);
+            }
+          });
     };
 
     //add one project

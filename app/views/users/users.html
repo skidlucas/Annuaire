@@ -1,10 +1,11 @@
 <div class="row">
   <div class="col-lg-offset-4 col-lg-5">
-    <h3 class="bluePoly">Liste des utilisateurs</h3>
+    <h3 style="margin-bottom:30px;">Liste des utilisateurs</h3>
   </div>
   <div class="col-lg-12">
-    <p>Filtre :
-      <input type="text" ng-model="user.name">
+    <p>
+      Recherche par PRENOM : <input type="text" ng-model="user.name"> <br>
+      Recherche par NOM : <input style="margin-left:28px; margin-top:5px;" type="text" ng-model="user.surname">
       <a href="#/addUser"><button class="btn btn-primary droite">Ajouter</button></a>
     </p>
   </div>
@@ -13,7 +14,7 @@
         <tr ng-repeat="user in users | filter:user">
           <td style="width: 95%;"><a href="#/{{user.id}}/detailsUser"> {{ user.name }} {{ user.surname }}</a></td>
           <td><a href="#/{{user.id}}/editUser"><i class="fa fa-pencil-square-o fa-2x"></i></a></td>
-          <td><a ng-click="delete(user.id)"><i class="fa fa-times fa-2x"></i></a></td>
+          <td><a style="cursor: pointer;" ng-click="delete(user.id)"><i class="fa fa-minus-circle fa-2x"></i></i></a></td>
         </tr>
       </table>
   </div>

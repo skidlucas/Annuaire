@@ -15,22 +15,27 @@ angular.module('annuaireApp')
       'Karma'
      ];
 
-    Projects.getAll($routeParams.projId, function (data) {
-      $scope.projects = data;
-    }, function (data) {
-      //erreur dans le chargement
-    });
-
-    $scope.deleteElt = function (projId) {
-      Projects.delete(projId, function(data){
-        $location.url('/projects');// ne marche pas
-      }, function (data){
-        //erreur dans le delete
-      });
+    $scope.getAll = function() {
+        Projects.getAll(function(data) {
+            $scope.projects = data;
+        }, function(data) {
+            $scope.error = data;
+        });
     }
 
-  }])
-  .controller('AddProjCtrl',  ['$scope', '$http', '$routeParams', 'Projects', function ($scope, $http, $routeParams, Projects) {
+    $scope.delete = function (projectId) {
+        Projects.delete(projectId, function(data){
+            $location.path('/projects');
+            $scope.getAll();
+        }, function (data){
+            $scope.error = "Erreur dans la suppression du projet";
+        });
+    }
+
+    $scope.getAll();
+}])
+
+  .controller('AddProjCtrl',  ['$scope', '$http', '$routeParams', '$location', 'Projects', function ($scope, $http, $routeParams, $location, Projects) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -39,7 +44,7 @@ angular.module('annuaireApp')
 
     $scope.saveData = function () {
       Projects.add($scope.project, function (data){
-        //afficher l'élément ajouté
+          $location.path('/projects');
       }, function (data){
         //erreur dans l'ajout
       });
@@ -53,6 +58,14 @@ angular.module('annuaireApp')
       'Karma'
     ];
 
+    $scope.delete = function (projectId) {
+        Projects.delete(projectId, function(data){
+            $location.path('/projects');
+        }, function (data){
+            $scope.error = "Erreur dans la suppression du projet";
+        });
+    }
+
     if ($routeParams.projId) {
       Projects.get($routeParams.projId,
         function(data) {
@@ -65,7 +78,7 @@ angular.module('annuaireApp')
 
     $scope.saveData = function () {
       Projects.edit($scope.project, function (data){
-        $location.path('/' + data.id + '/detailsProj');//a test
+        $location.path('/' + data.id + '/detailsProj');
       }, function (data){
         //erreur dans l'ajout
       });

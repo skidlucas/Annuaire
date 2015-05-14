@@ -37,7 +37,7 @@ angular
         controller: 'AddUserCtrl'
       })
       .when('/addProj',{
-        templateUrl:'../views/users/addProj.html',
+        templateUrl:'../views/projects/addProj.html',
         controller: 'AddProjCtrl'
       })
       .when('/:userId/detailsUser',{
@@ -49,7 +49,7 @@ angular
         controller:'EditUserCtrl'
       })
       .when('/:projId/editProj', {
-        templateUrl:'../views/projects/addProj.html',
+        templateUrl:'../views/projects/editProj.html',
         controller:'EditProjCtrl'
       })
       .when('/:projId/detailsProj', {
