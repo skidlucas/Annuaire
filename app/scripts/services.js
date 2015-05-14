@@ -164,6 +164,18 @@ angular.module('annuaireApp')
           }
         });
     }
+
+    //delete the role
+    this.delete = function(role, successCB, errorCB) {
+    $http.delete('http://poo-ihm-2015-rest.herokuapp.com/api/Roles/'+ role)
+    .success(function(data) {
+      if (data.status === 'success') {
+        successCB(data.data);
+      } else {
+        errorCB(data.data);
+      }
+    });
+    }
   }])
 
   .service('Projects',  ['$http', function Projects($http) {

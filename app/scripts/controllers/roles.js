@@ -21,11 +21,10 @@ angular.module('annuaireApp')
         //$scope.projects = data;
         $scope.projSelected = data;
       }, function (data) {
-        //erreur dans le chargement
       });
       Users.get(data.UserId, function (data) {
         //$scope.utils = data;
-        $scope.utilSelected = data;
+        $scope.userSelected = data;
       }, function (data) {
 
       });
@@ -34,9 +33,16 @@ angular.module('annuaireApp')
     });
 
     $scope.saveData = function(){
-      console.log($scope.projSelected);
-      console.log($scope.utilSelected);
-    }
+      $scope.role.UserId = $scope.userSelected.id;
+      $scope.role.ProjectId = $scope.projSelected.id;
+      $location.path('/' + $scope.role.UserId + '/detailsUser');
+        Roles.edit($scope.role,
+          function(data){
+            $scope.result = data;
+          }, function (data) {
+            $scope.error = data;
+          });
+    };
   }])
 
   .controller('AddRoleCtrl',  ['$scope', '$http', '$routeParams', '$location', 'Roles', 'Projects', 'Users', function ($scope, $http, $routeParams, $location, Roles, Projects, Users) {
@@ -46,25 +52,26 @@ angular.module('annuaireApp')
       'Karma'
     ];
 
-    Projects.getAll($routeParams.projId, function (data) {
+    Projects.getAll(function (data) {
       $scope.projects = data;
     }, function (data) {
-      //erreur dans le chargement
+      $scope.error = data;
     });
 
-    Users.getAll($routeParams.userId, function (data) {
-      $scope.utils = data;
+    Users.getAll(function (data) {
+      $scope.users = data;
     }, function (data) {
-
+      $scope.error = data;
     });
 
     $scope.saveData = function(){
-      $scope.role.UserId = $scope.utilSelected.id;
+      $scope.role.UserId = $scope.userSelected.id;
       $scope.role.ProjectId = $scope.projSelected.id;
+      $location.path('/' + $scope.role.UserId + '/detailsUser');
       Roles.add($scope.role, function(data){
-        //
+          $scope.result = data;
       }, function (data) {
-        //
+
       });
     }
   }])

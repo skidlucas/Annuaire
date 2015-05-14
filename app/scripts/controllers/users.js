@@ -43,15 +43,16 @@ angular.module('annuaireApp')
     ];
 
     $scope.saveData = function () {
-      Users.add($scope.user, function (data){
-          $location.path('/users');
-      }, function (data){
-      });
+        if($scope.user.name != null && $scope.user.surname != null) {
+            Users.add($scope.user, function (data) {
+                $location.path('/users');
+            }, function (data) {
+            });
+        }
     }
-
   }])
 
-  .controller('DetailUserCtrl',['$scope', '$http', '$routeParams', 'Users', 'Roles', 'Projects', function ($scope, $http, $routeParams, Users, Roles, Projects) {
+  .controller('DetailUserCtrl',['$scope', '$http', '$routeParams', '$route', 'Users', 'Roles', 'Projects', function ($scope, $http, $routeParams, $route, Users, Roles, Projects) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -61,33 +62,46 @@ angular.module('annuaireApp')
       Users.get($routeParams.userId,
         function (data) {
           $scope.user = data;
-          var donneesProj = new Array();
+          var dataProj = new Array();
           Users.getProj($routeParams.userId,
             function (data) {
-              donneesProj = data;
-              var donneesRoles = new Array();
+              dataProj = data;
+              var dataRoles = new Array();
               Users.getRoles($routeParams.userId,
                 function(data){
-                  donneesRoles = data;
-                  for(var i = 0 ; i < donneesRoles.length ; ++i){
-                    for(var j = 0 ; j < donneesProj.length ; ++j) {
-                      if(donneesRoles[i].ProjectId === donneesProj[j].id){
-                        donneesRoles[i].title = donneesProj[j].title;
-                        donneesRoles[i].description = donneesProj[j].description;
+                  dataRoles = data;
+                  for(var i = 0 ; i < dataRoles.length ; ++i){
+                    for(var j = 0 ; j < dataProj.length ; ++j) {
+                      if(dataRoles[i].ProjectId === dataProj[j].id){
+                        dataRoles[i].title = dataProj[j].title;
+                        dataRoles[i].description = dataProj[j].description;
                         break;
                       }
                     }
                   }
-                  $scope.projects = donneesRoles;
+                  $scope.projects = dataRoles;
                 }, function (data) {
-                  //a faire
                 })
             }, function (data){
-              // a faire
             })
         },
         function (data) {
           $scope.error = data;
+        });
+    }
+
+    $scope.reload = function() {
+        Users.get($routeParams.userId, function(data) {
+            $scope.user = data;
+        }, function(data) {
+            $scope.error = data;
+        });
+    }
+
+    $scope.delete = function (role) {
+        Roles.delete(role, function(data) {
+            $route.reload();
+        }, function (data) {
         });
     }
   }])
@@ -118,13 +132,16 @@ angular.module('annuaireApp')
     }
 
     $scope.saveData = function() {
-      Users.edit($scope.user,
-        function(data) {
-          $location.path('/'+ data.id +'/detailsUser');
-        },
-        function(data) {
-          $scope.error = data;
-        });
+        if($scope.user.name != null && $scope.user.surname != null) {
+            Users.edit($scope.user,
+                function (data) {
+                    $location.path('/' + data.id + '/detailsUser');
+                },
+                function (data) {
+                    $scope.error = data;
+                });
+        }
     };
+
   }])
 

@@ -25,6 +25,12 @@ img{
   text-align: center;
 }
 
+.imgcenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .grand{
   font-size: x-large;
 }

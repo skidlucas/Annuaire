@@ -61,7 +61,7 @@ angular
         controller: 'AddRoleCtrl'
       })
       .when('/:roleId/editRole', {
-        templateUrl:'../views/roles/addRole.html',
+        templateUrl:'../views/roles/editRole.html',
         controller: 'EditRoleCtrl'
       })
       .otherwise({

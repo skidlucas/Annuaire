@@ -2,20 +2,20 @@
   <fieldset>
 
     <!-- Form Name -->
-    <h3 class="center blue">Ajout d'un rôle</h3>
+    <h3 class="center">Ajout d'un rôle</h3>
 
     <!-- Select Basic -->
     <div class="form-group">
-      <label class="col-lg-4 control-label" for="user">Utilisateur :</label>
+      <label class="col-lg-4 control-label" for="user">Utilisateur </label>
       <div class="col-lg-6">
-        <select id="user" name="user" class="form-control" ng-options="util.name for util in utils" ng-model="utilSelected">
+        <select id="user" name="user" class="form-control" ng-options="user.name for user in users" ng-model="userSelected">
         </select>
       </div>
     </div>
 
     <!-- Select Basic -->
     <div class="form-group">
-      <label class="col-lg-4 control-label" for="project">Projet :</label>
+      <label class="col-lg-4 control-label" for="project">Projet </label>
       <div class="col-lg-6">
         <select id="project" name="project" class="form-control" ng-options="proj.title for proj in projects" ng-model="projSelected">
         </select>
@@ -24,7 +24,7 @@
 
     <!-- Text input-->
     <div class="form-group">
-      <label class="col-lg-4 control-label" for="role">Rôle :</label>
+      <label class="col-lg-4 control-label" for="role">Rôle </label>
       <div class="col-lg-6">
         <input id="role" name="role" placeholder="" class="form-control" required="" type="text" ng-model="role.name">
       </div>
@@ -34,7 +34,7 @@
     <div class="form-group">
       <div class="col-lg-offset-2 col-lg-8 center">
         <button id="button1id" name="button1id" class="btn btn-primary" ng-click="saveData()">Sauver</button>
-        <a href="#/main.html"><button id="button2id" name="button2id" class="btn">Annuler</button></a>
+        <a href="#/users"><button id="button2id" name="button2id" class="btn">Annuler</button></a>
       </div>
     </div>
 

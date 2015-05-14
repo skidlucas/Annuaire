@@ -14,7 +14,7 @@
         <tr ng-repeat="user in users | filter:user">
           <td style="width: 95%;"><a href="#/{{user.id}}/detailsUser"> {{ user.name }} {{ user.surname }}</a></td>
           <td><a href="#/{{user.id}}/editUser"><i class="fa fa-wrench fa-2x"></i></a></td>
-          <td><a style="cursor: pointer;" ng-click="delete(user.id)"><i class="fa fa-minus-circle fa-2x"></i></i></a></td>
+          <td><a style="cursor: pointer;" ng-click="delete(user.id)"><i class="fa fa-minus-circle fa-2x"></i></a></td>
         </tr>
       </table>
   </div>

@@ -1,4 +1,4 @@
-<h3 class="center blue">{{user.surname}} {{user.name}}</h3>
+<h3 class="center">{{user.surname}} {{user.name}}</h3>
 <div class="col-lg-offset-2 col-lg-8 panel">
     <p>Mail : {{user.email}}</p>
     <p>Site web : {{user.website}}</p>
@@ -11,7 +11,7 @@
       <td style="width: 40%;">{{proj.description}}</td>
       <td style="width: 30%;">{{proj.name}}</td>
       <td style="width: 5%;"><a href="#/{{proj.id}}/editRole"><i class="fa fa-wrench fa-2x"></i></a></td>
-      <td style="width: 5%;"><a ng-click="delete(proj.id, user.id)"><i class="fa fa-minus-circle fa-2x"></i></a></td>
+      <td style="width: 5%;"><a style="cursor: pointer;" ng-click="delete(proj.id, user.id)"><i class="fa fa-minus-circle fa-2x"></i></a></td>
     </tr>
   </table>
 </div>

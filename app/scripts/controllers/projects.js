@@ -43,11 +43,12 @@ angular.module('annuaireApp')
     ];
 
     $scope.saveData = function () {
-      Projects.add($scope.project, function (data){
-          $location.path('/projects');
-      }, function (data){
-        //erreur dans l'ajout
-      });
+        if($scope.project.title != null && $scope.project.year != null) {
+            Projects.add($scope.project, function (data) {
+                $location.path('/projects');
+            }, function (data) {
+            });
+        }
     }
   }])
 
@@ -77,11 +78,12 @@ angular.module('annuaireApp')
     }
 
     $scope.saveData = function () {
-      Projects.edit($scope.project, function (data){
-        $location.path('/' + data.id + '/detailsProj');
-      }, function (data){
-        //erreur dans l'ajout
-      });
+        if($scope.project.title != null && $scope.project.year != null) {
+            Projects.edit($scope.project, function (data) {
+                $location.path('/' + data.id + '/detailsProj');
+            }, function (data) {
+            });
+        }
     }
   }])
 
@@ -97,36 +99,34 @@ angular.module('annuaireApp')
       Projects.get($routeParams.projId,
         function (data) {
           $scope.proj = data;
-          var donneesUtil = new Array();
+          var dataUsers = new Array();
           Projects.getUtil($routeParams.projId,
             function (data) {
-              donneesUtil = data;
-              var donneesRoles = new Array();
+              dataUsers = data;
+              var dataRoles = new Array();
               Projects.getRoles($routeParams.projId,
                 function (data) {
-                  donneesRoles = data;
-                  for(var i = 0 ; i < donneesRoles.length ; ++i){
-                    for(var j = 0 ; j < donneesUtil.length ; ++j){
-                      if(donneesRoles[i].UserId === donneesUtil[j].id){
-                        donneesRoles[i].surname = donneesUtil[j].surname;
-                        donneesRoles[i].prenom = donneesUtil[j].name;
+                  dataRoles = data;
+                  for(var i = 0 ; i < dataRoles.length ; ++i){
+                    for(var j = 0 ; j < dataUsers.length ; ++j){
+                      if(dataRoles[i].UserId === dataUsers[j].id){
+                        dataRoles[i].surname = dataUsers[j].surname;
+                        dataRoles[i].prenom = dataUsers[j].name;
                         break;
                       }
                     }
                   }
-                  $scope.users = donneesRoles;
+                  $scope.users = dataRoles;
 
                 }, function (data) {
-                  //a faire
                 });
             },
             function (data) {
-              //a faire
             });
 
         },
         function (data) {
-          $scope.error = data;// a refaire
+          $scope.error = data;
         });
     }
   }])
