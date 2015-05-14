@@ -44,7 +44,6 @@ angular.module('annuaireApp')
 
     $scope.saveData = function () {
       Projects.add($scope.project, function (data){
-          $location.path('/projects');
       }, function (data){
         //erreur dans l'ajout
       });
@@ -58,8 +57,8 @@ angular.module('annuaireApp')
       'Karma'
     ];
 
-    $scope.delete = function (projectId) {
-        Projects.delete(projectId, function(data){
+    $scope.delete = function (projId) {
+        Projects.delete(projId, function(data){
             $location.path('/projects');
         }, function (data){
             $scope.error = "Erreur dans la suppression du projet";
