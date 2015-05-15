@@ -1,12 +1,7 @@
-# java-script
+# Annuaire
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.11.1.
+Site Annuaire réalisé par Lucas Martinez pour le cours de POO3 de Romaric Pighetti à l'aide de yeoman, angularJS, bower, grunt.
 
-## Build & development
+## Serveur local
 
-Run `grunt` for building and `grunt serve` for preview.
-
-## Testing
-
-Running `grunt test` will run the unit tests with karma.
+Lancer `grunt serve` pour lancer le serveur local.
